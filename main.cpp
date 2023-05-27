@@ -62,7 +62,7 @@ void crepeticion(){
     cin >> t;
     cout << "Y grupos de cuantos elementos vamos a formar?";
     cin >> c;
-    cout << (fact[t + c + 1] / (fact[c] * fact[max(0, t - 1)])) << endl;
+    cout << (fact[t + c - 1] / (fact[c] * fact[max(0, t - 1)])) << endl;
 }
 void csimples(){
     int t, c;
@@ -92,6 +92,10 @@ void permutacion()
         case 3:
             prepeticion();
             break;
+        default:
+            cout<<"Esa no es una opcion valida"<<endl;
+            permutacion();
+            break;
     }
 
 }
@@ -108,6 +112,10 @@ void variacion()
             break;
         case 2:
             vrepeticion();
+            break;
+        default:
+            cout<<"Esa no es una opcion valida"<<endl;
+            variacion();
             break;
     }
 
@@ -126,6 +134,10 @@ void combinacion()
         case 2:
             crepeticion();
             break;
+        default:
+            cout<<"Esa no es una opcion valida"<<endl;
+            combinacion();
+            break;
     }
 
 }
@@ -138,12 +150,12 @@ void factInit()
     {
         x *= i;
         fact[i] = x;
-        cout << "SDD = " << x << endl;
+        //cout << "SDD = " << x << endl;
     }
-    ffor(i, 0, 19)
+    /*ffor(i, 0, 19)
     {
         cout << fact[i] << endl;
-    }
+    }*/
 }
 
 int main() {
@@ -157,6 +169,7 @@ int main() {
         cout<<"1.-Permutacion"<<endl;
         cout<<"2.-Variacion"<<endl;
         cout<<"3.-Combinacion"<<endl;
+        cout<<"4.-Cerrar Programa"<<endl;
         cin>>n;
         switch(n)
         {
@@ -168,6 +181,12 @@ int main() {
                 break;
             case 3:
                 combinacion();
+                break;
+            case 4:
+                return 0;
+                break;
+            default:
+                cout<<"Esa no es una opcion valida"<<endl;
                 break;
         }
     }
